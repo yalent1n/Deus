@@ -1,0 +1,26 @@
+#pragma once
+#include "Bundle.h"
+
+namespace rw
+{
+template<typename T>
+struct unifiedhash
+{
+    inline unsigned operator()(const T& key) const
+    {
+        return rw::DJB(&key, sizeof(key));
+    }
+};
+
+template<>
+struct unifiedhash<const char*>
+{
+    inline unsigned operator()(const char* const& key) const
+    {
+        if(isnil(key))
+            return 0;
+
+        return rw::DJB(key, std::strlen(key));
+    }
+};
+}

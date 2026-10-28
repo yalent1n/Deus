@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<project name="core">
+    <publicproperty name="include">${config-filedir}/include</publicproperty>
+    
+    <!-- This can be defined as a group too, shown as in Tools.Wind's project config. -->
+    <dependency name="Engine.Base"/>
+
+    <if condition="${framework.modularization}">
+        <publicproperty name="output-type">shared-dll</publicproperty>
+    <else>
+        <publicproperty name="output-type">component</publicproperty>
+    </else>
+    </if>
+
+    <sources>        
+    </sources>
+</project>

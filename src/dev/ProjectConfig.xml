@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project name="Engine">
+    <!-- framework.modularization: Defines that Engine group is built as a separate DLL, not as "Engine.lib" static library -->
+    <publicproperty name="framework.modularization">true</publicproperty>
+
+    <defines>                
+        <if condition="${framework.engine_static_or_shared_dll}=='shared-dll'">
+            ENGINE_BUILD_DLL=1            
+        </if>
+        <if condition="${framework.engine_static_or_shared_dll}=='static'">
+            ENGINE_BUILD_STATIC=1
+        </if>
+    </defines>
+
+    <module name="Base" buildconfig="dev" buildtype="$(framework.engine_static_or_shared_dll)">
+        <autoassemblytarget />
+        <autoincludedirs />
+        <autoddfincludedirs />        
+
+        <dependencies>
+            Advapi32
+            Bcrypt
+        </dependencies>
+    </module>
+    
+    <module name="BuildInfo" buildconfig="dev" buildtype="$(framework.engine_static_or_shared_dll)">
+        <autoassemblytarget />
+        <autoincludedirs />
+        <autoddfincludedirs />
+
+        <dependencies>
+            Engine.Base
+        </dependencies>
+    </module> 
+    
+    <module name="Core" buildconfig="dev" buildtype="$(framework.engine_static_or_shared_dll)">
+        <autoassemblytarget />
+        <autoincludedirs />
+        <autoddfincludedirs />
+
+        <dependencies>
+            Advapi32
+            Engine.Base
+        </dependencies>
+    </module> 
+    
+    <module name="ToolCore" buildconfig="dev" buildtype="$(framework.engine_static_or_shared_dll)">
+        <autoassemblytarget />
+        <autoincludedirs />
+        <autoddfincludedirs />
+
+        <dependencies>
+            Engine.Base
+        </dependencies>
+    </module>    
+    
+    <module name="Storage" buildconfig="dev" buildtype="$(framework.engine_static_or_shared_dll)">
+        <autoassemblytarget />
+        <autoincludedirs />            
+        <autoddfincludedirs />
+
+        <dependencies>
+            Advapi32
+            Engine.Base
+            Engine.Core
+        </dependencies>
+    </module>
+    
+    <module name="Reflection" buildconfig="dev" buildtype="$(framework.engine_static_or_shared_dll)">
+        <autoassemblytarget />
+        <autoincludedirs />
+        <autoddfincludedirs />
+
+        <dependencies>
+            Engine.Base
+        </dependencies>
+    </module>
+    
+    <module name="Network" buildconfig="dev" buildtype="$(framework.engine_static_or_shared_dll)">
+        <autoassemblytarget />
+        <autoincludedirs />            
+        <autoddfincludedirs />
+
+        <dependencies>
+            Engine.Base
+            Engine.Core
+        </dependencies>
+    </module>
+</project>

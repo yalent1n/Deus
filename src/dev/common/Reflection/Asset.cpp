@@ -1,0 +1,71 @@
+#include <Engine.Reflection/Asset.h>
+#include <cstddef>
+
+namespace rw
+{
+/////////////////////////////////////
+BEGIN_TYPE_ATTRIBUTES_EXPORT(Asset)
+END_ATTRIBUTES_EXPORT()
+
+BEGIN_MEMBER_ATTRIBUTES_EXPORT(Asset, Name)
+END_ATTRIBUTES_EXPORT()
+
+BEGIN_FIELDS_EXPORT(Asset)
+    EXPORT_MEMBER (Name)
+END_FIELDS_EXPORT()
+
+EXPORT_ABSTRACT_SYMBOL(Asset)
+/////////////////////////////////////
+
+/////////////////////////////////////
+REFL_TYPEINFO_FUNCS(TestBedAsset)
+REFL_TYPEINFO_ARRAY_FUNCS(TestBedAsset)
+
+BEGIN_TYPE_ATTRIBUTES_EXPORT(TestBedAsset)
+END_ATTRIBUTES_EXPORT()
+
+BEGIN_MEMBER_ATTRIBUTES_EXPORT(TestBedAsset, Name2)
+END_ATTRIBUTES_EXPORT()
+
+BEGIN_FIELDS_EXPORT(TestBedAsset)
+    EXPORT_MEMBER(Name2)
+END_FIELDS_EXPORT()
+
+EXPORT_SYMBOL(TestBedAsset)
+/////////////////////////////////////
+
+/////////////////////////////////////
+REFL_TYPEINFO_FUNCS(AssetRef)
+REFL_TYPEINFO_ARRAY_FUNCS(AssetRef)
+
+BEGIN_TYPE_ATTRIBUTES_EXPORT(AssetRef)
+END_ATTRIBUTES_EXPORT()
+
+BEGIN_MEMBER_ATTRIBUTES_EXPORT(AssetRef, Asset)
+END_ATTRIBUTES_EXPORT()
+
+BEGIN_MEMBER_ATTRIBUTES_EXPORT(AssetRef, IDs)
+END_ATTRIBUTES_EXPORT()
+
+BEGIN_FIELDS_EXPORT(AssetRef)
+    EXPORT_MEMBER (Asset)
+    EXPORT_ARRAY_MEMBER (IDs)
+END_FIELDS_EXPORT()
+
+EXPORT_STRUCT(AssetRef)
+/////////////////////////////////////
+
+/////////////////////////////////////
+BEGIN_ENUM_ATTRIBUTES_EXPORT(PlatformEnum)
+END_ATTRIBUTES_EXPORT()
+
+BEGIN_ENUM_MEMBER_ATTRIBUTES_EXPORT(Win32)
+END_ATTRIBUTES_EXPORT()
+
+BEGIN_ENUM_EXPORT(PlatformEnum)
+    EXPORT_ENUM_MEMBER(Win32)
+END_ENUM_EXPORT()
+
+EXPORT_ENUM(PlatformEnum)
+/////////////////////////////////////
+}

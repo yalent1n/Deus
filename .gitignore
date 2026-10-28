@@ -1,0 +1,11 @@
+.vscode
+.vs
+.DS_Store
+*.exe
+*.dll
+imgui.ini
+build/
+data/
+libs/
+tools/Bin/
+tools/Data/

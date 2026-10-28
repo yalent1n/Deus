@@ -1,0 +1,38 @@
+props {
+    std = "c++17",
+    warnings = "all",
+    config = "debug"
+}
+
+defs {
+    "ENGINE_BUILD_DLL"
+}
+
+includes {
+    "./include"
+}
+
+deps {
+    "Advapi32",
+    "Bcrypt",
+    "lz4",
+    "zlib",
+    "zstd"
+}
+
+hdrs {
+    "**.h"
+}
+
+srcs {
+    "**.cpp"
+}
+
+excludes {
+    "Test/**.h",
+    "Test/**.cpp"
+}
+
+config {
+    name "asdasd"
+}

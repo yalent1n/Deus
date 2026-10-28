@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<project name="entity">
+    <publicproperty name="include">${config-filedir}/include</publicproperty>
+    
+    <if condition="${framework.modularization}">
+        <publicproperty name="output-type">shared-dll</publicproperty>
+    <else>
+        <publicproperty name="output-type">component</publicproperty>
+    </else>
+    </if>
+
+    <sources>        
+    </sources>
+</project>
